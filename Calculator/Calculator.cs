@@ -12,6 +12,7 @@ namespace CalculatorProject
 
     public class Calculator
     {
+        public decimal ChfToEur { get { return 0.94m; } }
         public decimal Calculate(decimal value1, decimal value2, CalculationType calculationType)
         {
             switch (calculationType)
@@ -49,6 +50,11 @@ namespace CalculatorProject
         private decimal MakeDivision(decimal value1, decimal value2)
         {
             return value1 / value2;
+        }
+
+        public decimal GetChfToEuro(int chf)
+        {
+            return chf * ChfToEur;
         }
     }
 }

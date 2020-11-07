@@ -32,9 +32,29 @@ namespace Calculator.Tests
         [Fact(DisplayName = "Test der Division")]
         public void TestDivision()
         {
+            decimal dividend = 10.0m;
+            decimal divisor = 2.0m;
+
             CalculatorProject.Calculator calculator = new CalculatorProject.Calculator();
-            decimal result = calculator.Calculate(10.0m, 0.0m, CalculatorProject.CalculationType.DIVISION);
+            decimal result = calculator.Calculate(dividend, divisor, CalculatorProject.CalculationType.DIVISION);
             Assert.Equal(5.0m, result);
+        }
+
+        [Fact(DisplayName = "Divisor nicht 0")]
+        public void TestDivisorIsNotZero()
+        {
+            CalculatorProject.Calculator calculator = new CalculatorProject.Calculator();
+            decimal divisor = 0.0m;
+            Assert.False(divisor != 0);
+        }
+
+        [Fact(DisplayName = "Schweizerfranken zu Euro Wechseln")]
+        public void TestChfToEur()
+        {
+            CalculatorProject.Calculator calculator = new CalculatorProject.Calculator();
+            decimal result = calculator.GetChfToEuro(2);
+            Assert.Equal(calculator.ChfToEur * 2, result);
+
         }
     }
 }
